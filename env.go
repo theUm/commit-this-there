@@ -19,6 +19,8 @@ type Config struct {
 	DoGitCheck             bool   `env:"DO_GIT_CHECK" envDefault:"true"`                         // check last commit to contain specified file ( runs before push)
 	DoGitPush              bool   `env:"DO_GIT_PUSH" envDefault:"false"`                         // to push or not to push - that is the question
 	DeleteCloned           bool   `env:"DELETE_CLONED" envDefault:"false"`                       // delete cloned repo(repos) if everything is fine
+	RememberFails          bool   `env:"REMEMBER_FAILS" envDefault:"true"`                       // whether to log failed repos to txt file
+	RememberFailsFilePath  string `env:"REMEMBER_FAILS_FILE" envDefault:"failed.txt"`            // failed repos txt file path
 }
 
 func ParseEnv(envStruct *Config) error {

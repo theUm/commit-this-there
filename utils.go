@@ -49,14 +49,14 @@ func mkdirIfNotExist(path string) error {
 }
 
 func gitCheck(cloneToDir, filePath string) error {
-	stringToCheck := fmt.Sprintf("A\t%s\n", filePath)
+	stringToCheck := fmt.Sprintf("A\t%s\n", filePath) //added a file
 
 	output, err := exec.Command("git", "-C", cloneToDir, "log", "--name-status", "HEAD^..HEAD").CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("failed to \"git -C cloneToDir log --name-status HEAD^..HEAD\": %s", err)
 	}
 	if !strings.Contains(string(output), stringToCheck) {
-		return errors.New("mismatch git check")
+		return errors.New("mismatch git check. Got: " + string(output))
 	}
 	return nil
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"strings"
 	"sync"
 )
@@ -29,7 +30,10 @@ func main() {
 	repos := parseFile(cfg)
 
 	cloneWorkersIn := make(chan repo, 4)
-	c := NewCloner(cfg)
+	c, err := NewCloner(cfg)
+	if err != nil {
+		log.Fatal("create cloner: %w", err)
+	}
 	wg := &sync.WaitGroup{}
 	for i := 0; i < cfg.CloneWorkersCount; i++ {
 		wg.Add(1)
