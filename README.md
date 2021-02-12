@@ -20,4 +20,12 @@ Next envs are used:
 "DELETE_CLONED" envDefault:"false"                       // delete cloned repo(repos) if everything is fine
 ```
 
+
+repos.txt file syntax:
+```
+https://github.com/theUm/commit-this-there
+asfd bad string not url will be ignored
+
+```
+
 Note: you have to manually delete failed repos if some step fails. It would be like this for now
