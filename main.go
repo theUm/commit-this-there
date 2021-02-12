@@ -26,7 +26,6 @@ func main() {
 		panic(err)
 	}
 
-	cfg.GithubOrg = "github.com/theUm"
 	repos := parseFile(cfg)
 
 	cloneWorkersIn := make(chan repo, 4)
