@@ -1,7 +1,6 @@
 version: 2
 updates:
   # https://docs.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates
-  # batching pull requests weekly spread out across the various days
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
